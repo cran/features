@@ -1,0 +1,8 @@
+##
+##  NAMESPACE
+##
+
+# Public routines
+export(features)
+
+# S4 Methods

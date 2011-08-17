@@ -1,7 +1,7 @@
 features <- function(x, y, smoother=c("glkerns", "smooth.spline"), fits.return=TRUE, control=list( ), ...) 
 {
 
-ctrl <- list(npts=100, plot.it=FALSE, c.outlier=3, decim.out=2)
+ctrl <- list(npts=100, c.outlier=3, decim.out=2)
 
 namc <- names(control)
     if (!all(namc %in% names(ctrl))) 
@@ -85,12 +85,6 @@ rm(fit)
 outl <- resid.scaled > c.outlier
 if (sum(outl) == 0) outliers <- NULL else outliers <- x[outl] 
 
-if (plot.it) {
-	plot(x, y, type="p")
-	lines(x.out, fit0, col=2)
-	}
-
-
 if (!is.null(crtpts) ) {
 	cp <- crtpts
 	cv <- curv
@@ -107,11 +101,38 @@ cv <- round(cv, decim.out)
 ol <- round(ol, decim.out)
 
 ret.obj <- list(f=round(f, decim.out), cpts=cp, curvature=cv, outliers=ol)
-if (fits.return) attr(ret.obj, "fits") <- list(x=x, fn=fits, d1=fits1, d2=fits2)
-
+if (fits.return) attr(ret.obj, "fits") <- list(x=x, y=y, fn=fits, d1=fits1, d2=fits2)
+class(ret.obj) <- "features"
 return(ret.obj)
 }
-##################################################
+
+##############
+plot.features <- function(x,  ...) {
+if (class(x) != "features") stop("Input must be an object of class `features' ")
+fits <- attr(x, "fits")
+old.par <- par(no.readonly = TRUE)
+on.exit(par(old.par)) 
+par(mfrow=c(2,2))
+plot(fits$x, fits$y, xlab="x", ylab="smoothed function", ...)
+lines(fits$x, fits$fn, ...)
+plot(fits$x, fits$y, xlab="x", ylab="smoothed function", ...)
+lines(fits$x, fits$fn, ...)
+plot(fits$x, fits$d1, type="l", xlab="x", ylab="First Derivative", ...)
+abline(h=0, lty=3)
+plot(fits$x, fits$d2, type="l", xlab="x", ylab="Second Derivative", ...)
+abline(h=0, lty=3)
+}
+
+
+fget <- function(x) { 
+if (class(x) != "features") stop("Input must be an object of class `features' ") else UseMethod("fget") 
+}
+
+fget.features <- function(x) {
+if (class(x) != "features") stop("Input must be an object of class `features' ")
+list(f=x$f, crit.pts=x$cpts, curvature=x$curvature, outlier=x$outlier)
+}
+
 
 
 

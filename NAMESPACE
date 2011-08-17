@@ -4,5 +4,9 @@
 
 # Public routines
 export(features)
+export(fget)
+export(plot.features)
+S3method(fget, features)
+S3method(plot, features)
 
 # S4 Methods

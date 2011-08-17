@@ -2,6 +2,12 @@
   features                                                               NEWS
 ------------------------------------------------------------------------------
 
+Second version
+
+    o Released August 17, 2011.
+    o Added S3 methods for class "features"
+    o Two methods: plot (for plotting) and fget (for extracting features) 
+    o Removed the `plot.it' option
 
 First version
 

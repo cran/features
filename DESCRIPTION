@@ -8,8 +8,8 @@ Description: Discretely-sampled function is first smoothed.  Features
         cunction at critical points, wiggliness of the function, noise
         in data, and outliers in data.
 Depends: lokern
-Version: 2011.8-1
-Date: 2011-08-04
+Version: 2011.8-2
+Date: 2011-08-17
 Author: Ravi Varadhan, Johns Hopkins University, and MKG Subramaniam,
         AT&T Reserach Labs.
 Maintainer: Ravi Varadhan <rvaradhan@jhmi.edu>
@@ -18,5 +18,5 @@ URL:
 License: GPL (>= 2)
 LazyLoad: yes
 Repository: CRAN
-Date/Publication: 2011-08-13 13:04:41
-Packaged: 2011-08-12 21:37:48 UTC; rvaradh1
+Date/Publication: 2011-08-17 05:30:24
+Packaged: 2011-08-16 19:27:50 UTC; rvaradh1

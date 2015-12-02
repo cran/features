@@ -1,9 +1,9 @@
-57c8aadf7e672b6f1e6c15956e54c216 *DESCRIPTION
-311e81f20566c440b5285a17d05aabf4 *NAMESPACE
-f075b4a5ea3db32a2ca8d19d549e8210 *NEWS
-06dc6bd8d0548a28bce0fd73af574313 *R/features.R
+fc8da91d0f44b040fc5dde709c3df5d8 *DESCRIPTION
+e1a158ec3288c78749afe555e67aa7f5 *NAMESPACE
+bfd363c1697e6d0721fdb8e929ec69bb *NEWS
+72c4d5c9e4e995605a8fc6d6e78d9782 *R/features.R
 04149137bf18d48ecbd6860ca199f42c *demo/00Index
-abcaca1fdb8a918992a4dba7fda08737 *demo/features.R
+1a9ece882e24fb823992d19ff8fb06ad *demo/features.R
 3091ea1a1761951c9ded9ba6852daa12 *man/features.Rd
 262f68456d2eacfeb46e90fd5c512dcb *man/fget.features.Rd
 ff4ca7b88223ecfdf4931466b87fa85d *man/plot.features.Rd

@@ -8,6 +8,7 @@ ans <- features(x, y, fits.return=TRUE, control=list(plot.it=TRUE))
 ans$f
 ans$f["fwiggle"]
 ans$out
+fget(ans)
 
 fits <- attr(ans, "fits")
 # fits$fn is the function value at locations fits$x

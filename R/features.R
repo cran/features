@@ -1,7 +1,7 @@
 features <- function(x, y, smoother=c("glkerns", "smooth.spline"), fits.return=TRUE, control=list( ), ...) 
 {
 
-ctrl <- list(npts=100, c.outlier=3, decim.out=2)
+ctrl <- list(npts=max(100, length(y)), c.outlier=3, decim.out=2)
 
 namc <- names(control)
     if (!all(namc %in% names(ctrl))) 
@@ -17,13 +17,13 @@ trapezoid <- function(x,y) sum(diff(x)*(y[-1] + y[-length(y)]))/2
 smoother <- match.arg(smoother, c("glkerns", "smooth.spline"))
 
 if (smoother == "glkerns") {
-	deriv1 <- function(z) glkerns(x, y, deriv=1, x.out=z, hetero=TRUE, ...)$est
-	deriv2 <- function(z) glkerns(x, y, deriv=2, x.out=z, hetero=TRUE, ...)$est
+	deriv1 <- function(z, ...) glkerns(x, y, deriv=1, x.out=z, hetero=TRUE, ...)$est
+	deriv2 <- function(z, ...) glkerns(x, y, deriv=2, x.out=z, hetero=TRUE, ...)$est
 }
 
 if (smoother == "smooth.spline") {
-	deriv1 <- function(z) predict(fit, deriv=1, x=z)$y
-	deriv2 <- function(z) predict(fit, deriv=2, x=z)$y
+	deriv1 <- function(z, ...) predict(fit, deriv=1, x=z)$y
+	deriv2 <- function(z, ...) predict(fit, deriv=2, x=z)$y
 }
 
 n <- length(x)
@@ -33,7 +33,7 @@ cp <- cv <- ol <- NA
 x.out <- seq(min(x), max(x), length=max(npts, length(x)))
 
 if (smoother == "glkerns") {
-fit <- glkerns(x, y, deriv=0, x.out=x, hetero=FALSE)
+fit <- glkerns(x, y, deriv=0, x.out=x, hetero=FALSE, ...)
 fit0 <- glkerns(x, y, deriv=0, x.out=x.out, hetero=TRUE, ...)$est
 fit1 <- glkerns(x, y, deriv=1, x.out=x.out, hetero=TRUE, ...)$est
 fit2 <- glkerns(x, y, deriv=2, x.out=x.out, hetero=TRUE, ...)$est
@@ -47,7 +47,7 @@ if (fits.return) {
 }
 
 if (smoother == "smooth.spline") {
-fit <- smooth.spline(x, y, cv=FALSE)
+fit <- smooth.spline(x, y, cv=FALSE, ...)
 fit0 <- predict(fit, deriv=0, x=x.out)$y
 fit1 <- predict(fit, deriv=1, x=x.out)$y
 fit2 <- predict(fit, deriv=2, x=x.out)$y

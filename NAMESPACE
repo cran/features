@@ -1,6 +1,9 @@
 ##
 ##  NAMESPACE
 ##
+importFrom("lokern", "glkerns")
+importFrom("graphics", "abline", "lines", "par", "plot")
+importFrom("stats", "predict", "smooth.spline", "uniroot")
 
 # Public routines
 export(features)

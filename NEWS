@@ -1,6 +1,12 @@
 ------------------------------------------------------------------------------
   features                                                               NEWS
 ------------------------------------------------------------------------------
+Third version
+
+    o Released December 01, 2015.
+    o Added `...' in some of the calls to the smoothers so that smoothing options can be specified by the user
+    o changed the default `npts' from 100 to max(100, length(y))
+
 
 Second version
 

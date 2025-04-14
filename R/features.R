@@ -74,8 +74,7 @@ if (ncrt == 0) crtpts <- curv <- NULL  else {
 	ind0 <- (1:npts)[d0]
 	for (i in 1:ncrt) {
 	temp <- try(uniroot(interval=c(x.out[ind0[i]], x.out[1 + ind0[i]]), f=deriv1), silent=TRUE)
-	if (class(temp) != "try-error") {
-		crtpts[i] <- temp$root
+	  if (!inherits(temp, "try-error")) {
 		curv[i] <- deriv2(temp$root)
 		}
 	}
@@ -108,7 +107,7 @@ return(ret.obj)
 
 ##############
 plot.features <- function(x,  ...) {
-if (class(x) != "features") stop("Input must be an object of class `features' ")
+if (!inherits(x, "features")) stop("Input must be an object of class `features' ")
 fits <- attr(x, "fits")
 old.par <- par(no.readonly = TRUE)
 on.exit(par(old.par)) 
@@ -125,11 +124,11 @@ abline(h=0, lty=3)
 
 
 fget <- function(x) { 
-if (class(x) != "features") stop("Input must be an object of class `features' ") else UseMethod("fget") 
+if (!inherits(x, "features")) stop("Input must be an object of class `features' ") else UseMethod("fget") 
 }
 
 fget.features <- function(x) {
-if (class(x) != "features") stop("Input must be an object of class `features' ")
+if (!inherits(x, "features")) stop("Input must be an object of class `features' ")
 list(f=x$f, crit.pts=x$cpts, curvature=x$curvature, outlier=x$outlier)
 }
 

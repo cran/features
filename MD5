@@ -1,9 +1,9 @@
-fc8da91d0f44b040fc5dde709c3df5d8 *DESCRIPTION
+59356f03ab2dcbd0a746019c57d42eee *DESCRIPTION
 e1a158ec3288c78749afe555e67aa7f5 *NAMESPACE
 bfd363c1697e6d0721fdb8e929ec69bb *NEWS
-72c4d5c9e4e995605a8fc6d6e78d9782 *R/features.R
+952f5d3d1295ad7eb0946eb002370f9f *R/features.R
 04149137bf18d48ecbd6860ca199f42c *demo/00Index
 1a9ece882e24fb823992d19ff8fb06ad *demo/features.R
-3091ea1a1761951c9ded9ba6852daa12 *man/features.Rd
+55c94635dec4b42d68e3fee236a4cc63 *man/features.Rd
 262f68456d2eacfeb46e90fd5c512dcb *man/fget.features.Rd
 ff4ca7b88223ecfdf4931466b87fa85d *man/plot.features.Rd

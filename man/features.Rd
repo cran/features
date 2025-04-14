@@ -46,7 +46,7 @@ A list with a number of extracted features of the underlying smooth function:
 }
 
 \seealso{
-\code{\link{fget}}, \code{\link{plot.features}}, \code{\link[graphics]{plot}}, \code{\link{glkerns}}, \code{\link{smooth.spline}}
+\code{\link{fget}}, \code{\link{plot.features}}, \code{\link[graphics]{plot}}, \code{\link[lokern]{glkerns}}, \code{\link{smooth.spline}}
 }
 
 
